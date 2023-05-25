@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-3" style="align:center;">
+  <div class="shadow card"  style="background-color:#98fb98;">
+
+                    <div class="card-body">
+                        <div style="text-align:center;">
+                    <h4 class="card-title">{{task.Task_name}}</h4>
+                        <br>
+                        <p><b>Planned date: {{task.date}}</b></p>
+                     <p><b>Task priority: {{task.priority}}</b></p>
+                      <a class="btn btn-primary" href="{% url 'taskapp:update' task.id %}">Modify Plan</a>
+                            <a class="btn btn-danger" href="{% url 'taskapp:delete' task.id %}">Done</a>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

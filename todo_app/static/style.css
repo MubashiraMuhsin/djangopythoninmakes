@@ -1,0 +1,18 @@
+.banner{
+background-color:#006400;
+width:100%;
+height:200px;
+margin-bottom:50px;
+}
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+}
+.banner-text{
+font-size:50px;
+color:#d0ff14;
+top:7%;
+left:40%;
+position:absolute;
+transform:transform;
+
+}

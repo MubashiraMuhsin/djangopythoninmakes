@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" >
+                <form method="POST" class="p-3-shadow" >
+                {% csrf_token %}
+                    <div class="form-group">
+                     <div class="shadow">
+                    <input type="text" class="form-control" name="task" placeholder="Add a Task to do">
+
+
+                    <input type="text" class="form-control" name="priority" placeholder="Task priority">
+
+                    <input type="date" class="form-control" name="date" placeholder="Enter the planned date">
+
+                      <input type="submit" class="btn btn-success" >
+                     </div>
+                      </div>
+                    </form>
+            </div>
+            <div class="col-md-6">
+                 <div style="text-align:center;"><h4>Task to be completed</h4></div>
+                    <br>
+                <div class="col-md-12">
+
+                {% for i in task %}
+
+                <div class="shadow card"  style="background-color:#98fb98;">
+
+                    <div class="card-body">
+                        <div style="text-align:center;">
+                    <h4 class="card-title">{{i.Task_name}}</h4>
+                        <br>
+                        <p><b>Planned date: {{i.date}}</b></p>
+                     <p><b>Task priority: {{i.priority}}</b></p>
+                      <a class="btn btn-primary" href="{% url 'taskapp:cbvupdate' i.id %}">Modify Plan</a>
+                            <a class="btn btn-danger" href="{% url 'taskapp:cbvdelete' i.id %}">Done</a>
+                    </div>
+                    </div>
+                </div>
+                    {% endfor %}
+                     </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
